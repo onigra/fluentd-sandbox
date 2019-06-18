@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  fluentd:
+    image: fluent/fluentd:v1.5-1
+    ports:
+      - 34224:24224
+    volumes:
+      - "./docker-fluentd.conf:/fluentd/etc/docker-fluentd.conf"
+    environment:
+      FLUENTD_CONF: "docker-fluentd.conf"
+      TZ: "Asia/Tokyo"
